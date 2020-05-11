@@ -1,0 +1,34 @@
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+image = cv2.imread('Erdem.jpg')
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+plt.figure(figsize=(11,6))
+plt.imshow(image)
+plt.title('Image')
+plt.xticks([])
+plt.yticks([])
+plt.show()
+
+image2 = cv2.cvtColor(image, cv2.COLOR_HSV2BGR)
+image2 = cv2.cvtColor(image2, cv2.COLOR_BGR2GRAY)
+figure_size = 9
+new_image = cv2.medianBlur(image2, figure_size)
+
+plt.figure(figsize=(11,6))
+plt.subplot(121), plt.imshow(image2, cmap='gray'),plt.title('Original')
+plt.xticks([]), plt.yticks([])
+plt.subplot(122), plt.imshow(new_image, cmap='gray'),plt.title('Median Filter')
+plt.xticks([]), plt.yticks([])
+plt.show()
+
+"""
+while 1:
+    cv2.imshow('img',image) 
+    cv2.imwrite("detected.jpg",image)
+    
+    k = cv2.waitKey(30) & 0xff
+    if k == 27: 
+        break 
+cv2.destroyAllWindows()
+"""
