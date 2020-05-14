@@ -7,9 +7,9 @@ Created on Tue May 12 21:31:14 2020
 import cv2 as cv
 import numpy as np
 
-img_rgb = cv.imread('find.jpeg')
+img_rgb = cv.imread('circuit.jpg')
 img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
-template = cv.imread('findobject.jpg',0)
+template = cv.imread('circuititem.jpg',0)
 w, h = template.shape[::-1]
 res = cv.matchTemplate(img_gray,template,cv.TM_CCOEFF_NORMED)
 threshold = 0.8
